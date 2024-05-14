@@ -1,10 +1,6 @@
 import React from 'react'
 
-
-import ExamEvent from './ExamEvent';
-
-import { BlogDetail } from '@/interface/blogDetails'
-import { EventBlogDetail } from '@/interface/blogDetails'
+import { BlogDetail, EventBlogDetail } from '@/interface/blogs/blogDetails'
 
 
 type Props = {
@@ -35,7 +31,9 @@ export default function Blogs({blogDetails}: Props) {
                             key={e.eventTitle}
                             className='mobile:w-[30rem] sm:w-1/3 md:w-1/4 sm:h-[20rem] bg-gray-100 border border-gray-100 hover:opacity-80 rounded-xl hover:shadow-lg transition-all'
                         >
-                            <ExamEvent detail={e}/>
+                            <p>
+                                {String(e)}
+                            </p>
                         </li>
                     )
                 })}

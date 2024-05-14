@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { EventBlogDetail } from '@/interface/blogDetails'
+import { EventBlogDetail } from '@/interface/blogs/blogDetails'
 
 import { Image } from 'antd'
 import { ImLocation } from "react-icons/im";
