@@ -34,7 +34,7 @@ export default function Navigation({}: Props) {
                 <ul className='flex flex-row gap-x-[2vw] items-center'>
                     <li>
                         <Link href='/'>
-                            <h1 className='font-bold text-2xl'>
+                            <h1 className='font-bold text-2xl text-gray-600 hover:text-gray-700'>
                                 Ebent
                             </h1>
                         </Link>
@@ -43,8 +43,8 @@ export default function Navigation({}: Props) {
                         <Input
                             prefix={<FiSearch className=''/>}
                             placeholder="Search"
-                            className='w-[20vw] rounded-full text-base pr-[1.5vw] font-light gap-x-[0.5vw]'
-                        />
+                            className="w-[20vw] border-2 rounded-full text-base pr-[1.5vw] font-light gap-x-[0.5vw] border-gray-300 focus:border-gray-500 hover:border-gray-500"
+                            />
                     </li>
                 </ul>
 
@@ -73,12 +73,12 @@ export default function Navigation({}: Props) {
                     <ul className='mobile:hidden md:flex items-center md:text-base gap-x-[2vw]'>
                         <li className=''>
                             <Link href='/marketplace'>
-                                <h1 className='lg:text-xl md:text-base'>Marketplace</h1>
+                                <h1 className='lg:text-xl md:text-base text-gray-600 font-semibold hover:text-gray-700'>Marketplace</h1>
                             </Link>
                         </li>
                         <li className='flex flex-row gap-x-[1vw]'> 
                             <Link href='/benefit'>
-                                <h1 className='lg:text-xl md:text-base'>Organize</h1>
+                                <h1 className='lg:text-xl md:text-base  text-gray-600 font-semibold hover:text-gray-700'>Organize</h1>
                             </Link>
                         </li>
                         <li className='mobile:hidden md:flex flex-row gap-x-[0.5vw]'>
@@ -87,18 +87,8 @@ export default function Navigation({}: Props) {
                                     setCurrentLanguage('th')
                                 }}
                             >
-                                <h1 className={`${currentLanguage === 'th' ? 'text-gray-700': 'text-gray-400 hover:text-gray-600 '} `}>
-                                    ไทย
-                                </h1>
-                            </button>
-                            <p className='text-gray-400'>|</p>
-                            <button
-                                onClick={()=>{
-                                    setCurrentLanguage('en')
-                                }}
-                            >
-                                <h1 className={`${currentLanguage === 'en' ? 'text-gray-700': 'text-gray-400'} hover:opacity-85`}>
-                                    English
+                                <h1 className={`${currentLanguage === 'th' ? 'text-gray-600': 'text-gray-400 hover:text-gray-600 '} font-semibold`}>
+                                    {currentLanguage === 'th' ? keyWord['language'][0] : keyWord['language'][1]}
                                 </h1>
                             </button>
                         </li>
@@ -106,7 +96,7 @@ export default function Navigation({}: Props) {
                             !isLoggedin &&
                             <li className='mobile:hidden md:flex gap-x-[1vw]'>
                                 <Link href='/signin' className=''>
-                                    <h1 className='font-light text-white bg-gray-800 border-solid border-2 border-gray-800 rounded-xl lg:px-[1.5vw] lg:py-[0.5vh] sm: hover:opacity-85'>
+                                    <h1 className='lg:text-lg md:text-base text-white font-medium bg-gray-600 border-solid border-2 border-gray-700 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-gray-700'>
                                         {currentLanguage === 'th' ? keyWord['signIn'][0] : keyWord['signIn'][1]}
                                     </h1>
                                 </Link>
@@ -116,22 +106,18 @@ export default function Navigation({}: Props) {
                             <li className='mobile:hidden md:flex '>
                                 <Link href='/wallet'>
                                     <IoWalletOutline
-                                    className='text-3xl font-medium text-gray-700 hover:text-gray-500'
+                                        className='text-3xl font-medium text-gray-700 hover:text-gray-500'
                                     />
                                 </Link>
                             </li>
                         }                        
                     </ul>
-
-
-
-                  
                 </div>
-
             </div>
             <div className='mobile:flex lg:hidden mobile:px-[3vw] sm:px-[5vw]'>
                 <Input
-                    className='text-lg'
+                    prefix={<FiSearch className='text-lg'/>}
+                    className="w-full border-2 rounded-full text-base pr-[1.5vw] font-light gap-x-[0.5vw] border-gray-300 focus:border-gray-500 hover:border-gray-500"
                     placeholder='Search'
                 />
             </div>
