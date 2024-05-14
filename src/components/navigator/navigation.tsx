@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState , useEffect } from 'react'
 
 import { useLanguage } from '@/context/language'
 
@@ -13,13 +13,18 @@ import { IoWalletOutline } from "react-icons/io5";
 
 type Props = {}
 
+const keyWord = {'language': [ "ไทย" , "English" ] , 'signIn' : [ 'เข้าสู่ระบบ' , 'Log in' ] , 'signUp' : ['สมัครสมาชิก', 'Sign up']}
+
 export default function Navigation({}: Props) {
     const { currentLanguage, setCurrentLanguage } = useLanguage();
 
-    const keyWord = {'language': [ "ไทย" , "English" ] , 'signIn' : [ 'เข้าสู่ระบบ' , 'Log in' ] , 'signUp' : ['สมัครสมาชิก', 'Sign up']}
+    const [isLoggedin, setIsLoggedin] = useState(false);
 
-    const isLoggedin = sessionStorage.getItem('profile') === null ? false : true
-    
+    useEffect(()=>{
+        // check if user is logged in
+        const profile = localStorage.getItem('profile')
+        setIsLoggedin(profile ? true : false)
+    })
 
     return (
         <section className='w-full'>
