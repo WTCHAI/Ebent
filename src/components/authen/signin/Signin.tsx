@@ -1,6 +1,11 @@
 'use client'
 import React from 'react'
 
+import { useForm , Controller} from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { SigninFormScema , SigninFormType } from '@/schema/signinForm'
+
+
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 
@@ -25,7 +30,11 @@ function isValidPassword(password: string): boolean {
 }
 
 export default function Signin({}: Props) {
+  const { register, handleSubmit , control ,formState: { errors } , } = useForm<SigninFormType>({ resolver : zodResolver(SigninFormScema) })
 
+  const onSubmit = async (data: SigninFormType) => {
+    console.log(data)
+  }
 
   return (
     <main className='flex items-center justify-center w-full h-full text-gray-500'>
@@ -41,42 +50,47 @@ export default function Signin({}: Props) {
         <form
           className='flex flex-col justiy-center gap-y-[2vh] w-full'
           onSubmit={
-            ()=>{
-
-            }
-            // form.handleSubmit(onFormSubmit)
+            handleSubmit(async (data)=>{
+              onSubmit(data)
+            })
           }  
         >   
           <div>
             <h1 className='tracking-tight leading-tight font-normal text-base mb-[1vh]'>
               What&apos;s your email ?
             </h1>
-            <Input
-                type='email'
-                // {...form.register('email')}
-                // onChange={(e : React.ChangeEvent<HTMLInputElement> )=>{
-                //   const targetInput = e.target.value.trim()
-                //   form.setValue('email',targetInput)                
-                // }} 
-                placeholder='Enter your email'
-                className='w-full p-2 border border-gray-500 rounded-md'
-            />            
+            <Controller
+              {...register('email')}
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <Input
+                  {...field}
+                  placeholder='Enter your email'
+                  className='w-full p-2 border border-gray-500 rounded-md'
+                />
+              )}  
+            />
+            {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
+
           </div>
           <div>
             <h1 className='tracking-tight leading-tight font-normal text-base'>
               What&apos;s your password ?
             </h1>
-            <Input.Password
-                type='password'
-                // {...form.register('password')}
-                // onChange={(e : React.ChangeEvent<HTMLInputElement> )=>{
-                //   const targetInput = e.target.value.trim()
-                //   form.setValue('password',targetInput)                
-                // }}
-                iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                placeholder='Enter your password'
-                className='w-full p-2 border border-gray-500 rounded-md'
-            />            
+            <Controller
+              name="password"
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <Input.Password
+                  {...field}
+                  placeholder='Enter your email'
+                  className='w-full p-2 border border-gray-500 rounded-md'
+                />
+              )}  
+            />
+            {errors.password && <span className='text-red-500'>{errors.password.message}</span>}
           </div>
           <Divider
                 style={{
