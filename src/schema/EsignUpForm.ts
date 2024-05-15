@@ -6,7 +6,8 @@ function isValidEmail(email: string): boolean {
     return emailRegex.test(email);
   }
   
-export const SigninFormSchema = z.object({
+export const ESignupFormSchema = z.object({
+    name : z.string().min(3, { message: 'Name should be at least 3 characters long' }),
     email: z.string()
         .email()
         .refine((value) => isValidEmail(value), {
@@ -20,7 +21,7 @@ export const SigninFormSchema = z.object({
         }),
 });
 
-export type SigninFormType = z.infer<typeof SigninFormSchema>;
+export type ESignupFormType = z.infer<typeof ESignupFormSchema>;
 
 
   

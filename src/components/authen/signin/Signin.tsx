@@ -3,7 +3,7 @@ import React from 'react'
 
 import { useForm , Controller} from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { SigninFormScema , SigninFormType } from '@/schema/signinForm'
+import { SigninFormSchema , SigninFormType } from '@/schema/signinForm'
 
 import { EsignIn } from '@/firebase//signIn/EsignIn'  
 
@@ -20,7 +20,7 @@ import { GoogleSignIn } from '@/firebase/signIn/GoogleSignIn'
 type Props = {}
 
 export default function Signin({}: Props) {
-  const { register, handleSubmit , control ,formState: { errors } , } = useForm<SigninFormType>({ resolver : zodResolver(SigninFormScema) })
+  const { register, handleSubmit , control ,formState: { errors } , } = useForm<SigninFormType>({ resolver : zodResolver(SigninFormSchema) })
 
   const router = useRouter()
   const onSubmit = async (data: SigninFormType) => {
@@ -33,7 +33,6 @@ export default function Signin({}: Props) {
     }else if (response.status === 404) {
       alert(response.message)
     }
-
   }
 
   return (
@@ -71,7 +70,7 @@ export default function Signin({}: Props) {
                 />
               )}  
             />
-            {errors.email && <span className='text-red-500 text-base'>{errors.email.message}</span>}
+            {errors.email && <span className='text-red-500 text-sm mt-[1vh]'>{errors.email.message}</span>}
           </div>
           <div>
             <h1 className='tracking-tight leading-tight font-normal text-base'>
@@ -89,7 +88,7 @@ export default function Signin({}: Props) {
                 />
               )}  
             />
-            {errors.password && <span className='text-red-500'>{errors.password.message}</span>}
+            {errors.password && <span className='text-red-500 text-sm'>{errors.password.message}</span>}
           </div>
           <Divider
                 style={{
@@ -140,7 +139,7 @@ export default function Signin({}: Props) {
           </button> 
           <button
             type='submit'
-            className='w-full p-2 bg-gray-700 hover:opacity-90 hover:shadow-lg text-white rounded-md'
+            className='w-full p-2 bg-blue-500 hover:bg-primaryBlue hover:shadow-lg text-white rounded-md'
           >
             Sign in
           </button>
@@ -151,7 +150,7 @@ export default function Signin({}: Props) {
           </p>
           <Link
             href='/signup'
-            className='text-blue-500 ho9ver:underline'
+            className='text-blue-500 hover:text-primaryBlue hover:underline'
           >
             Sign up
           </Link>
