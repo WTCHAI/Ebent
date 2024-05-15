@@ -1,7 +1,7 @@
 'use server'
 
 import { auth } from '../InitializeApp'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
 
 import { EFormValues } from '@/interface/authen/EsignUpStatus'
 
@@ -12,6 +12,8 @@ export const ESignUpAuth = (formValue : EFormValues)=>{
             // Signed up
             const user = userCredential.user;
             // ...
+            updateProfile(user,{displayName:formValue.name})
+
             return  {
                 status : 200,
                 message : 'User has signed in successfully',
@@ -19,12 +21,9 @@ export const ESignUpAuth = (formValue : EFormValues)=>{
             }
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
             return {
-                status : 400,
-                message : 'Invalid email or password'
+                status : 404,
+                message : error.message
             }
         });
     return response

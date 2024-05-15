@@ -19,10 +19,10 @@ export const EsignIn = (email: string, password: string) => {
     })
     .catch((error) => {
         const errorMessage = error.message;
-        // console.log(errorMessage)
+
         return {
-            status : 400,
-            message : 'Invalid email or password'
+            status : 404,
+            message : errorMessage
         }
     })
     return response

@@ -28,7 +28,7 @@ export const GoogleSignIn = () => {
             // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
             return {
-                status: 400,
+                status: 404,
                 message: errorMessage
             }
         })

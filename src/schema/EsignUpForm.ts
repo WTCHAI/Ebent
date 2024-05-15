@@ -17,7 +17,7 @@ export const ESignupFormSchema = z.object({
         .min(6, { message: 'Password should be at least 6 characters long' })
         .max(15, { message: 'Password should be at most 15 characters long' })
         .refine((value) => /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/.test(value), {
-            message: 'Password should contain at least one special character',
+            message: 'Password should contain at least one special character & number',
         }),
 });
 
