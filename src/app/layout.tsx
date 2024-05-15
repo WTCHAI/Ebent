@@ -1,11 +1,11 @@
 import '../styles/global.css'
 import type { Metadata } from 'next'
-import { Libre_Baskerville } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
-const Libre = Libre_Baskerville({
-  weight: [ '400', '700' ],
+const poppins = Poppins({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   style: 'normal',
-  subsets: ['latin']
+  subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
@@ -16,8 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children,}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className={Libre.className}>
-        
+      <body className={poppins.className}>
         {children}  
       </body>
     </html>

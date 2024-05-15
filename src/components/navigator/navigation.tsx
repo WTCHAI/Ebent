@@ -30,11 +30,11 @@ export default function Navigation({}: Props) {
 
     return (
         <header className='flex flex-col w-full py-[4vh] gap-y-[2vh]'>
-            <div className='flex flex-row w-full items-center justify-between mobile:px-[3vw] text-gray-700 font-medium md:text-lg lg:text-xl sm:px-[5vw] xl:px-[6vw] '>
+            <div className='flex flex-row w-full items-center justify-between mobile:px-[3vw] font-medium md:text-lg lg:text-xl sm:px-[5vw] xl:px-[6vw] '>
                 <ul className='flex flex-row gap-x-[2vw] items-center'>
                     <li>
                         <Link href='/'>
-                            <h1 className='font-bold text-2xl text-gray-600 hover:text-gray-700'>
+                            <h1 className='font-semibold text-3xl text-primaryBlue'>
                                 Ebent
                             </h1>
                         </Link>
@@ -43,7 +43,7 @@ export default function Navigation({}: Props) {
                         <Input
                             prefix={<FiSearch className=''/>}
                             placeholder="Search"
-                            className="w-[20vw] border-2 rounded-full text-base pr-[1.5vw] font-light gap-x-[0.5vw] border-gray-300 focus:border-gray-500 hover:border-gray-500"
+                            className="w-[20vw] border-1 rounded-full text-base pr-[1.5vw] font-light gap-x-[0.5vw] border-gray-400 focus:border-blue-500 hover:border-blue-500"
                             />
                     </li>
                 </ul>
@@ -73,12 +73,12 @@ export default function Navigation({}: Props) {
                     <ul className='mobile:hidden md:flex items-center md:text-base gap-x-[2vw]'>
                         <li className=''>
                             <Link href='/marketplace'>
-                                <h1 className='lg:text-xl md:text-base text-gray-600 font-semibold hover:text-gray-800'>Marketplace</h1>
+                                <h1 className='lg:text-xl md:text-base text-gray-500 font-semibold hover:text-primaryBlue transition-colors duration-700'>Marketplace</h1>
                             </Link>
                         </li>
                         <li className='flex flex-row gap-x-[1vw]'> 
                             <Link href='/benefit'>
-                                <h1 className='lg:text-xl md:text-base  text-gray-600 font-semibold hover:text-gray-800'>Organize</h1>
+                                <h1 className='lg:text-xl md:text-base  text-gray-500 font-semibold hover:text-primaryBlue transition-colors duration-700'>Organize</h1>
                             </Link>
                         </li>
                         <li className='mobile:hidden md:flex flex-row gap-x-[0.5vw]'>
@@ -87,7 +87,7 @@ export default function Navigation({}: Props) {
                                     setCurrentLanguage('th')
                                 }}
                             >
-                                <h1 className={`${currentLanguage === 'th' ? 'text-gray-600': 'text-gray-400 hover:text-gray-600 '} font-semibold`}>
+                                <h1 className={`${currentLanguage === 'th' ? 'text-gray-600': 'text-gray-400 hover:text-primaryBlue hover:opacity-70'} md:text-base lg:text-lg font-semibold`}>
                                     {currentLanguage === 'th' ? keyWord['language'][0] : keyWord['language'][1]}
                                 </h1>
                             </button>
@@ -96,7 +96,7 @@ export default function Navigation({}: Props) {
                             !isLoggedin &&
                             <li className='mobile:hidden md:flex gap-x-[1vw]'>
                                 <Link href='/signin' className=''>
-                                    <h1 className='lg:text-lg md:text-base text-white font-medium bg-gray-600 border-solid border-2 border-gray-700 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-gray-700'>
+                                    <h1 className='lg:text-lg md:text-base text-white font-medium bg-blue-500 border-solid border-2 border-blue-500 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-primaryBlue hover:border-primaryBlue transition-colors duration-700'>
                                         {currentLanguage === 'th' ? keyWord['signIn'][0] : keyWord['signIn'][1]}
                                     </h1>
                                 </Link>
@@ -106,7 +106,7 @@ export default function Navigation({}: Props) {
                             <li className='mobile:hidden md:flex '>
                                 <Link href='/wallet'>
                                     <IoIosWallet
-                                        className='text-3xl font-medium text-gray-600 hover:text-red-800'
+                                        className='md:text-3xl lg:text-5xl font-medium text-primaryBlue hover:text-blue-700 transition-colors duration-700'
                                     />
                                 </Link>
                             </li>
