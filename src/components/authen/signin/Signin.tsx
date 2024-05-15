@@ -17,18 +17,6 @@ import { FaApple, FaGithub } from 'react-icons/fa'
 
 type Props = {}
 
-function isValidEmail(email: string): boolean {
-  // Regular expression for validating an email
-  const emailRegex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-function isValidPassword(password: string): boolean {
-  // Regular expression for validating a password
-  const passwordRegex: RegExp = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-  return passwordRegex.test(password);
-}
-
 export default function Signin({}: Props) {
   const { register, handleSubmit , control ,formState: { errors } , } = useForm<SigninFormType>({ resolver : zodResolver(SigninFormScema) })
 
@@ -71,8 +59,7 @@ export default function Signin({}: Props) {
                 />
               )}  
             />
-            {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
-
+            {errors.email && <span className='text-red-500 text-base'>{errors.email.message}</span>}
           </div>
           <div>
             <h1 className='tracking-tight leading-tight font-normal text-base'>
