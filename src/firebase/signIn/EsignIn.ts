@@ -1,6 +1,6 @@
 'use server'
 
-import { auth } from './InitializeApp'
+import { auth } from '../InitializeApp'
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 
@@ -10,7 +10,7 @@ export const EsignIn = (email: string, password: string) => {
         // Signed in 
         const user = userCredential.user;
         // ...
-        console.log(user.providerData[0])
+        // console.log(user.providerData[0])
         return  {
             status : 200,
             message : 'User has signed in successfully',
@@ -19,7 +19,7 @@ export const EsignIn = (email: string, password: string) => {
     })
     .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage)
+        // console.log(errorMessage)
         return {
             status : 400,
             message : 'Invalid email or password'

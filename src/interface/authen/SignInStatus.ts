@@ -7,9 +7,9 @@ type payloadType = {
     phoneNumber: string | null ; 
     photoURL: string | null ;
 }
-
-export interface ESigninStatus {
+export interface SigninStatus {
     status: number;
     message: string;
     payload?: payloadType; 
 }
+

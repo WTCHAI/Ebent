@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/firebase/EsignIn.ts",
+    "src/firebase/signIn/EsignIn.ts",
     "src/firebase/InitializeApp.ts"
   ],
   "exclude": ["node_modules"]

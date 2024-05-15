@@ -9,8 +9,8 @@ import Link from 'next/link'
 import { Input } from 'antd';
 
 import { IoMdMenu } from "react-icons/io";
-import { IoWalletOutline } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
+import { IoIosWallet } from "react-icons/io";
 
 
 type Props = {}
@@ -105,8 +105,8 @@ export default function Navigation({}: Props) {
                         { isLoggedin && 
                             <li className='mobile:hidden md:flex '>
                                 <Link href='/wallet'>
-                                    <IoWalletOutline
-                                        className='text-3xl font-medium text-gray-600 hover:text-gray-800'
+                                    <IoIosWallet
+                                        className='text-3xl font-medium text-gray-600 hover:text-red-800'
                                     />
                                 </Link>
                             </li>

@@ -15,7 +15,11 @@ const config: Config = {
       },
       screens:{
         mobile : '0px'
-      }      
+      },
+      colors: {
+        poseidon : '#133955',
+        
+      }     
     },
 
   },

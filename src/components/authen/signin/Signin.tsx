@@ -5,9 +5,9 @@ import { useForm , Controller} from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SigninFormScema , SigninFormType } from '@/schema/signinForm'
 
-import { EsignIn } from '@/firebase/EsignIn'  
+import { EsignIn } from '@/firebase//signIn/EsignIn'  
 
-import { ESigninStatus } from '@/interface/authen/ESignInStatus'
+import { SigninStatus } from '@/interface/authen/SignInStatus'
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation';
 import { Divider, Input } from 'antd'
 import { FcGoogle } from 'react-icons/fc'
 import { FaApple, FaGithub } from 'react-icons/fa'
+import { GoogleSignIn } from '@/firebase/signIn/GoogleSignIn'
 
 type Props = {}
 
@@ -24,7 +25,7 @@ export default function Signin({}: Props) {
   const router = useRouter()
   const onSubmit = async (data: SigninFormType) => {
     // console.log(data)
-    const response : ESigninStatus = await EsignIn(data.email, data.password)
+    const response : SigninStatus = await EsignIn(data.email, data.password)
     if (response.status === 200) {
       sessionStorage.setItem('profile', JSON.stringify(response.payload))
       router.push('/')
@@ -104,7 +105,13 @@ export default function Signin({}: Props) {
             className='flex w-full border-2 border-solid hover:border-gray-500 border-gray-600 gap-x-[1vw]  py-[1vh] rounded-full items-center justify-center hover:shadow-md'
             onClick={async (e)=>{
               e.preventDefault()
-              // GoogleSignIn()
+              const response : SigninStatus = await GoogleSignIn()
+              if (response.status === 200) {
+                sessionStorage.setItem('profile', JSON.stringify(response.payload))
+                router.push('/')
+              }else if (response.status === 404) {
+                alert(response.message)
+              }
             }}
           >
             <FcGoogle className='text-2xl'/>
