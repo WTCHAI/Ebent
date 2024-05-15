@@ -5,13 +5,14 @@ import { useForm , Controller} from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SigninFormScema , SigninFormType } from '@/schema/signinForm'
 
+import { EsignIn } from '@/firebase/EsignIn'  
+
+import { ESigninStatus } from '@/interface/authen/ESignInStatus'
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 
 import { Divider, Input } from 'antd'
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-
 import { FcGoogle } from 'react-icons/fc'
 import { FaApple, FaGithub } from 'react-icons/fa'
 
@@ -20,8 +21,18 @@ type Props = {}
 export default function Signin({}: Props) {
   const { register, handleSubmit , control ,formState: { errors } , } = useForm<SigninFormType>({ resolver : zodResolver(SigninFormScema) })
 
+  const router = useRouter()
   const onSubmit = async (data: SigninFormType) => {
-    console.log(data)
+    // console.log(data)
+    const response : ESigninStatus = await EsignIn(data.email, data.password)
+    if (response.status === 200) {
+      sessionStorage.setItem('profile', JSON.stringify(response.payload))
+      router.push('/')
+
+    }else if (response.status === 404) {
+      alert(response.message)
+    }
+
   }
 
   return (

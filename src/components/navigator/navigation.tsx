@@ -24,7 +24,7 @@ export default function Navigation({}: Props) {
 
     useEffect(()=>{
         // check if user is logged in
-        const profile = localStorage.getItem('profile')
+        const profile = sessionStorage.getItem('profile')
         setIsLoggedin(profile ? true : false)
     })
 
@@ -73,12 +73,12 @@ export default function Navigation({}: Props) {
                     <ul className='mobile:hidden md:flex items-center md:text-base gap-x-[2vw]'>
                         <li className=''>
                             <Link href='/marketplace'>
-                                <h1 className='lg:text-xl md:text-base text-gray-600 font-semibold hover:text-gray-700'>Marketplace</h1>
+                                <h1 className='lg:text-xl md:text-base text-gray-600 font-semibold hover:text-gray-800'>Marketplace</h1>
                             </Link>
                         </li>
                         <li className='flex flex-row gap-x-[1vw]'> 
                             <Link href='/benefit'>
-                                <h1 className='lg:text-xl md:text-base  text-gray-600 font-semibold hover:text-gray-700'>Organize</h1>
+                                <h1 className='lg:text-xl md:text-base  text-gray-600 font-semibold hover:text-gray-800'>Organize</h1>
                             </Link>
                         </li>
                         <li className='mobile:hidden md:flex flex-row gap-x-[0.5vw]'>
@@ -106,7 +106,7 @@ export default function Navigation({}: Props) {
                             <li className='mobile:hidden md:flex '>
                                 <Link href='/wallet'>
                                     <IoWalletOutline
-                                        className='text-3xl font-medium text-gray-700 hover:text-gray-500'
+                                        className='text-3xl font-medium text-gray-600 hover:text-gray-800'
                                     />
                                 </Link>
                             </li>
