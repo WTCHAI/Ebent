@@ -72,6 +72,11 @@ export default function Navigation({}: Props) {
                     {/* responsive handle > md */}
                     <ul className='mobile:hidden md:flex items-center md:text-base gap-x-[2vw]'>
                         <li className=''>
+                            <Link href='/'>
+                                <h1 className='lg:text-xl md:text-base text-gray-500 font-semibold hover:text-primaryBlue transition-colors duration-700'>Explore</h1>
+                            </Link>
+                        </li>
+                        <li className=''>
                             <Link href='/marketplace'>
                                 <h1 className='lg:text-xl md:text-base text-gray-500 font-semibold hover:text-primaryBlue transition-colors duration-700'>Marketplace</h1>
                             </Link>
