@@ -32,7 +32,7 @@ export default function Navigation({}: Props) {
                 <ul className='flex flex-row gap-x-[2vw] items-center'>
                     <li>
                         <Link href='/'>
-                            <h1 className='font-semibold text-3xl text-midGreen hover:text-baseGreen transition-colors duration-700'>
+                            <h1 className='font-semibold text-2xl text-midGreen hover:text-baseGreen transition-colors duration-700'>
                                 EBENT
                             </h1>
                         </Link>
@@ -41,7 +41,7 @@ export default function Navigation({}: Props) {
                         <Input
                             prefix={<FiSearch className=''/>}
                             placeholder="Search"
-                            className="w-[20vw] border-1 rounded-full text-base pr-[1.5vw] font-light gap-x-[0.5vw] border-baseGreen focus:border-midGreen hover:border-midGreen transition-colors duration-700"
+                            className="w-[20vw] border-1 rounded-full text-base pr-[2vw] font-light gap-x-[0.5vw] border-baseGreen focus:border-midGreen hover:border-midGreen transition-colors duration-700"
                         />
                     </li>
                 </ul>
@@ -71,17 +71,17 @@ export default function Navigation({}: Props) {
                     <ul className='mobile:hidden md:flex items-center md:text-base gap-x-[2vw]'>
                         <li className=''>
                             <Link href='/'>
-                                <h1 className='lg:text-xl md:text-base text-gray-400 font-semibold hover:text-gray-500 border-white border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-slate-50 hover:border-slate-50 transition-colors duration-500 hover:shadow-md'>EXPLORE</h1>
+                                <h1 className=' md:text-base text-gray-400 font-semibold hover:text-gray-500 border-white border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-slate-50 hover:border-slate-50 transition-colors duration-500 hover:shadow-md'>EXPLORE</h1>
                             </Link>
                         </li>
                         <li className=''>
                             <Link href='/marketplace'>
-                                <h1 className='lg:text-xl md:text-base text-gray-400 font-semibold hover:text-gray-500 border-white border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-slate-50 hover:border-slate-50 transition-colors duration-500 hover:shadow-md'>MARKETPLACE</h1>
+                                <h1 className=' md:text-base text-gray-400 font-semibold hover:text-gray-500 border-white border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-slate-50 hover:border-slate-50 transition-colors duration-500 hover:shadow-md'>MARKETPLACE</h1>
                             </Link>
                         </li>
                         <li className='flex flex-row gap-x-[1vw]'> 
                             <Link href='/benefit'>
-                                <h1 className='lg:text-xl md:text-base text-gray-400 font-semibold hover:text-gray-500 border-white border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-slate-50 hover:border-slate-50 transition-colors duration-500 hover:shadow-md'>ORGANIZE</h1>
+                                <h1 className='md:text-base text-gray-400 font-semibold hover:text-gray-500 border-white border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-slate-50 hover:border-slate-50 transition-colors duration-500 hover:shadow-md'>ORGANIZE</h1>
                             </Link>
                         </li>
                         <li className='mobile:hidden md:flex flex-row gap-x-[0.5vw]'>
@@ -90,7 +90,7 @@ export default function Navigation({}: Props) {
                                     setCurrentLanguage('th')
                                 }}
                             >
-                                <h1 className='text-gray-300 hover:text-gray-400 hover:text-opacity-70 md:text-base lg:text-lg font-semibold'>
+                                <h1 className='text-gray-300 hover:text-gray-400 hover:text-opacity-70 md:text-base font-semibold'>
                                     {currentLanguage === 'th' ? keyWord['language'][0] : keyWord['language'][1]}
                                 </h1>
                             </button>
@@ -99,7 +99,7 @@ export default function Navigation({}: Props) {
                             !isLoggedin &&
                             <li className='mobile:hidden md:flex gap-x-[1vw]'>
                                 <Link href='/signin' className=''>
-                                    <h1 className='lg:text-lg md:text-base text-white font-medium bg-baseGreen border-baseGreen border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-midGreen hover:border-midGreen transition-colors duration-300 hover:shadow-md'>
+                                    <h1 className='md:text-base text-white font-medium bg-baseGreen border-baseGreen border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-midGreen hover:border-midGreen transition-colors duration-300 hover:shadow-md'>
                                         {currentLanguage === 'th' ? keyWord['signIn'][0] : keyWord['signIn'][1]}
                                     </h1>
                                 </Link>
@@ -109,7 +109,7 @@ export default function Navigation({}: Props) {
                             <li className='mobile:hidden md:flex '>
                                 <Link href='/wallet'>
                                     <IoIosWallet
-                                        className='md:text-3xl lg:text-5xl font-medium text-baseGreen hover:text-midGreen transition-colors duration-700'
+                                        className='md:text-3xl font-medium text-baseGreen hover:text-midGreen transition-colors duration-700'
                                     />
                                 </Link>
                             </li>
