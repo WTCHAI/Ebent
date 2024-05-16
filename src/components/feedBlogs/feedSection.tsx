@@ -73,7 +73,7 @@ export default function FeedSection() {
                 {
                     feeds.currentFeeds.map((e : FeedDetails)=>{
                         return (
-                            <FeedBlogSection isLoading={feeds.isLoading} feedDetails={e}/>
+                            <FeedBlogSection key={e.title} isLoading={feeds.isLoading} feedDetails={e}/>
                         )
                     })
                 }
