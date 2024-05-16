@@ -8,9 +8,7 @@ export default function Home({}: Props) {
   return (
     <main>
        <Navigation/>
-       <p>
-          plhaceholder
-       </p>
+        
     </main>
   )
 }

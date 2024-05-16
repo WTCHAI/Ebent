@@ -17,16 +17,12 @@ const config: Config = {
         mobile : '0px'
       },
       colors: {
-        poseidon : '#133955',
-        navy: '#333366',
-        gold: '#FFD700',
-        iNavy: '#D1DB98',
         coldGold : '#999966',
-        DarkBlueGray : '#646AA2',
         primaryBlue: '#1A73E8',
         lightBlue: '#E8F0FE',
-        white: '#FFFFFF',
-        darkBlue: '#174EA6',
+        baseGreen :'#74AA9C',
+        midGreen: '#66A586' ,
+        DarkGreen: '#006241',
       }     
     },
 
