@@ -20,6 +20,7 @@ const keyWord = {
 export default function Navigation({}: Props) {
     const { currentLanguage, setCurrentLanguage } = useLanguage();
     const [isLoggedin, setIsLoggedin] = useState(false);
+    const [currentSearch, onSetCurrentSearch] = useState('');
 
     useEffect(() => {
         const profile = sessionStorage.getItem('profile');
@@ -41,7 +42,11 @@ export default function Navigation({}: Props) {
                         <Input
                             prefix={<FiSearch className=''/>}
                             placeholder="Search"
-                            className="w-[20vw] border-1 rounded-full text-base pr-[2vw] font-light gap-x-[0.5vw] border-baseGreen focus:border-midGreen hover:border-midGreen transition-colors duration-700"
+                            className="w-full border-2 rounded-full text-base pr-[1.75vw] font-light gap-x-[0.5vw] border-gray-300 focus:border-gray-400 hover:border-gray-400"
+                            onChange={(e)=>{
+                                onSetCurrentSearch(e.target.value.trim())
+                            }}
+                            value={currentSearch}
                         />
                     </li>
                 </ul>
@@ -120,8 +125,12 @@ export default function Navigation({}: Props) {
             <div className='mobile:flex lg:hidden mobile:px-[3vw] sm:px-[5vw]'>
                 <Input
                     prefix={<FiSearch className='text-lg'/>}
-                    className="w-full border-2 rounded-full text-base pr-[1.5vw] font-light gap-x-[0.5vw] border-gray-300 focus:border-gray-500 hover:border-gray-500"
+                    className="w-full border-2 rounded-full text-base pr-[1.75vw] font-light gap-x-[0.5vw] border-gray-300 focus:border-gray-400 hover:border-gray-400"
                     placeholder='Search'
+                    onChange={(e)=>{
+                        onSetCurrentSearch(e.target.value.trim())
+                    }}
+                    value={currentSearch}
                 />
             </div>
         </header>

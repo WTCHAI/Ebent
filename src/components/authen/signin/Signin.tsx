@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { SigninFormSchema , SigninFormType } from '@/schema/signinForm'
 
 import { EsignIn } from '@/firebase//signIn/EsignIn'  
+import { GoogleSignIn } from '@/firebase/signIn/GoogleSignIn'
 
 import { SigninStatus } from '@/interface/authen/SignInStatus'
 
@@ -15,7 +16,6 @@ import { useRouter } from 'next/navigation';
 import { Divider, Input } from 'antd'
 import { FcGoogle } from 'react-icons/fc'
 import { FaApple, FaGithub } from 'react-icons/fa'
-import { GoogleSignIn } from '@/firebase/signIn/GoogleSignIn'
 
 type Props = {}
 
@@ -112,6 +112,7 @@ export default function Signin({}: Props) {
                 alert(response.message)
               }
             }}
+            
           >
             <FcGoogle className='text-2xl'/>
             <p className='flex flex-row text-base text-gray-700 '>
