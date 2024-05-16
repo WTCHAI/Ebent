@@ -1,6 +1,6 @@
 'use server'
 
-import { auth } from '../InitializeApp'
+import { auth } from '../../InitializeApp'
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 

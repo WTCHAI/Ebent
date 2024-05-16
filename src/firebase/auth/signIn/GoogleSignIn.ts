@@ -1,5 +1,5 @@
 
-import { auth } from "../InitializeApp"
+import { auth } from "../../InitializeApp"
 
 import { GoogleAuthProvider , signInWithPopup } from "firebase/auth";
 

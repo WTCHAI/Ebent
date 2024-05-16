@@ -1,6 +1,6 @@
 'use server'
 
-import { auth } from '../InitializeApp'
+import { auth } from '../../InitializeApp'
 import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
 
 import { EFormValues } from '@/interface/authen/EsignUpStatus'
