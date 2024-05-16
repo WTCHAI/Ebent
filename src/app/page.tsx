@@ -2,19 +2,18 @@ import React from 'react'
 
 import Navigation from '@/components/navigator/navigation'
 import CarousalRender from '@/components/carousal/Carousal'
-import FeedEvents from '@/components/feedBlogs/blogs'
+import FeedSection from '@/components/feedBlogs/feedSection'
 
 
 type Props = {}
 
 export default function Home({}: Props) {
   
-  
   return (
     <main>
         <Navigation/>
         <CarousalRender/>
-        {/* <FeedEvents  /> */}
+        <FeedSection />
     </main>
   )
 }

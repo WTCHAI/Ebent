@@ -30,7 +30,7 @@ function translateDay(day: string ) {
     }
 }
 
-export default function BlogsDetails({detail}: Props) {
+export default function BlogsDetail({detail}: Props) {
   //date transform handler
   const startDate = new Date(detail.startDate)
   const endDate = new Date(detail.endDate)
