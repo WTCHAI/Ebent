@@ -1,4 +1,4 @@
-export interface EventBlogDetail {
+export interface FeedBlogDetail {
     eventId : string ; 
     eventImage : any ;
     eventDescription : string ;
@@ -8,7 +8,7 @@ export interface EventBlogDetail {
     location : string ;
 }
 
-export interface BlogDetail {
+export interface FeedDetails {
     title: string;
-    content: EventBlogDetail[];
+    content: FeedBlogDetail[];
 }

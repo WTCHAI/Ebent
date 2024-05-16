@@ -5,8 +5,8 @@ import { useForm , Controller} from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SigninFormSchema , SigninFormType } from '@/schema/signinForm'
 
-import { EsignIn } from '@/firebase//signIn/EsignIn'  
-import { GoogleSignIn } from '@/firebase/signIn/GoogleSignIn'
+import { EsignIn } from '@/firebase/auth/signIn/EsignIn'  
+import { GoogleSignIn } from '@/firebase/auth/signIn/GoogleSignIn'
 
 import { SigninStatus } from '@/interface/authen/SignInStatus'
 

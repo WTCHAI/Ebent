@@ -2,7 +2,7 @@
 import React from 'react'
 
 import { SigninStatus } from '@/interface/authen/SignInStatus';
-import { GoogleSignIn } from '@/firebase/signIn/GoogleSignIn';
+import { GoogleSignIn } from '@/firebase/auth/signIn/GoogleSignIn';
 
 import Link from 'next/link'
 

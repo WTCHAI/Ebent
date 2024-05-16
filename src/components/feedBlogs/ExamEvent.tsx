@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { EventBlogDetail } from '@/interface/blogs/blogDetails'
+import { FeedBlogDetail } from '@/interface/feedBlogs/feedBlogDetails';
 
 import { Image } from 'antd'
 import { ImLocation } from "react-icons/im";
 
 
 type Props = {
-  detail : EventBlogDetail
+  detail : FeedBlogDetail
 }
 
 function translateDay(day: string ) {
@@ -30,7 +30,7 @@ function translateDay(day: string ) {
     }
 }
 
-export default function ExamEvent({detail}: Props) {
+export default function BlogsDetails({detail}: Props) {
   //date transform handler
   const startDate = new Date(detail.startDate)
   const endDate = new Date(detail.endDate)

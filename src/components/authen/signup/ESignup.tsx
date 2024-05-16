@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ESignupFormSchema , ESignupFormType } from '@/schema/EsignUpForm';
  
 import { ESignupStatus } from '@/interface/authen/EsignUpStatus';
-import { ESignUpAuth } from '@/firebase/signUp/ESignUp';
+import { ESignUpAuth } from '@/firebase/auth/signUp/ESignUp';
 
 import { useRouter } from 'next/navigation';
 import Link from 'next/link'

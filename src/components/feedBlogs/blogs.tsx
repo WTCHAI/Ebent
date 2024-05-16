@@ -1,21 +1,20 @@
 import React from 'react'
 
-import { BlogDetail, EventBlogDetail } from '@/interface/blogs/blogDetails'
-
+import { FeedDetails , FeedBlogDetail } from '@/interface/feedBlogs/feedBlogDetails'
 
 type Props = {
-    blogDetails: BlogDetail ;
+    feedDetails: FeedDetails ;
 }
 
-export default function Blogs({blogDetails}: Props) {
+export default function FeedEvents({feedDetails}: Props) {
   return (
     <section>
         <span className='flex flex-row w-full justify-between'>
             <h1 className='text-3xl font-medium'>
-                {blogDetails.title}
+                {feedDetails.title}
             </h1>
             {
-                blogDetails.title !== 'Upcoming Events' &&
+                feedDetails.title !== 'Upcoming Events' &&
                 <button className='hover:opacity-70'>
                     <p className='text-xl text-blue-700 font-medium '>
                         View All
@@ -25,7 +24,7 @@ export default function Blogs({blogDetails}: Props) {
         </span>
         <div className='mt-[5vh]'>
             <ul className='flex flex-wrap items-center mobile:justify-center gap-x-[2vw] gap-y-[3vh] w-full '>
-                {blogDetails.content.map((e : EventBlogDetail)=>{
+                {feedDetails.content.map((e : FeedBlogDetail)=>{
                     return (
                         <li
                             key={e.eventTitle}
