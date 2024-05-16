@@ -25,7 +25,7 @@ export default function FeedSection() {
         const response : FeedStatus = await onGetFeeds()
         localStorage.setItem('feeds', JSON.stringify(response.payload))
         const tempFeeds: FeedDetails[] = Object.values(response.payload) // Explicitly type tempFeeds as FeedDetails[]
-        const reOrderFeeds = [
+        const reOrderingFeeds = [
             tempFeeds[2],
             tempFeeds[3],
             tempFeeds[1],
@@ -33,8 +33,9 @@ export default function FeedSection() {
         ]
         setFeeds({
             ...feeds,
-            currentFeeds : reOrderFeeds,
-            status: response.status 
+            currentFeeds : reOrderingFeeds,
+            status: response.status,
+            isLoading : false
         })
     }
     
@@ -43,34 +44,27 @@ export default function FeedSection() {
             ...feeds,
             isLoading : true
         })
-
         //Setting delays 2 sec
         setTimeout(() => {
             if (localStorage.getItem('feeds')) {
                 const tempFeeds : FeedDetails[] = Object.values(JSON.parse(localStorage.getItem('feeds') as string)) 
-                const reOrderFeeds = [
+                const reOrderingFeeds = [
                     tempFeeds[2],
                     tempFeeds[3],
                     tempFeeds[1],
                     tempFeeds[0]
                 ]
+                console.log(reOrderingFeeds)
                 setFeeds({
                     ...feeds,
-                    currentFeeds: reOrderFeeds,
-                    status: 200
+                    currentFeeds: reOrderingFeeds,
+                    status: 200,
+                    isLoading : false
                 })
             }else if (!localStorage.getItem('feeds')){
                 // is the case when the user is visiting the site for the first time
                 feedsData()
-            }
-            
-            //reset loading state
-            setFeeds(
-                {
-                    ...feeds,
-                    isLoading : false,                    
-                }
-            )               
+            }             
         }, 2000)
     },[])
     return (
@@ -87,7 +81,7 @@ export default function FeedSection() {
                 )
             }
             {
-                feeds.status === 200 && !feeds.isLoading && (
+                feeds.status === 200 && !feeds.isLoading && feeds.currentFeeds.length > 0 &&(
                     <>
                     tets
                         {
