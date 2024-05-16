@@ -68,33 +68,17 @@ export default function FeedSection() {
         }, 2000)
     },[])
     return (
-        <>  
-            {
-                feeds.isLoading && (
-                    <div className='flex items-center justify-center w-full h-full'>
-                        <div className='flex items-center justify-center gap-x-[1vw]'>
-                            <h1 className='text-2xl text-gray-700 font-medium'>
-                                Loading Feeds
-                            </h1>
-                        </div>
-                    </div>
-                )
-            }
-            {
-                feeds.status === 200 && !feeds.isLoading && feeds.currentFeeds.length > 0 &&(
-                    <>
-                    tets
-                        {
-                            feeds.currentFeeds.map((e : FeedDetails)=>{
-                                console.log(e)
-                                return (
-                                    <FeedBlogSection feedDetails={e}/>
-                                )
-                            })
-                        }
-                    </>
-                )
-            }
-        </>
+        <section className='px-[5vw] my-[5vh]'>  
+            <>
+                {
+                    feeds.currentFeeds.map((e : FeedDetails)=>{
+                        return (
+                            <FeedBlogSection isLoading={feeds.isLoading} feedDetails={e}/>
+                        )
+                    })
+                }
+            </>
+
+        </section>
     )
 }

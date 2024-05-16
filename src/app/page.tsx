@@ -10,7 +10,7 @@ type Props = {}
 export default function Home({}: Props) {
   
   return (
-    <main>
+    <main className='w-full'>
         <Navigation/>
         <CarousalRender/>
         <FeedSection />
