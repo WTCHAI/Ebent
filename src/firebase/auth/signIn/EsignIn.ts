@@ -1,10 +1,9 @@
 'use server'
-
-import { auth } from '../../InitializeApp'
-import { signInWithEmailAndPassword } from "firebase/auth";
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from '../../InitializeApp'
 
 export const EsignIn = (email: string, password: string) => {
+    const auth = getAuth(app)
     const response = signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in 

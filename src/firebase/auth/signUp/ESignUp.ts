@@ -1,12 +1,12 @@
 'use server'
 
-import { auth } from '../../InitializeApp'
-import { createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
+import { createUserWithEmailAndPassword , getAuth , updateProfile} from "firebase/auth";
+import { app } from '../../InitializeApp'
 
 import { EFormValues } from '@/interface/authen/EsignUpStatus'
 
 export const ESignUpAuth = (formValue : EFormValues)=>{
-
+    const auth = getAuth(app)
     const response = createUserWithEmailAndPassword(auth, formValue.email, formValue.password)
         .then((userCredential) => {
             // Signed up
