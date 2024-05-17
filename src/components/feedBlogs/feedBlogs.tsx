@@ -4,21 +4,20 @@ import { FeedDetails , FeedBlogDetail } from '@/interface/feedBlogs/feedBlogDeta
 import BlogsDetail from './feedBlogDetail';
 
 type Props = {
-    isLoading : boolean ;
     feedDetails: FeedDetails ;
 }
 
-export default function FeedBlogSection({isLoading,feedDetails}: Props) {
+export default function FeedBlogSection({feedDetails}: Props) {
     return (
         <section>
             <span className='flex flex-row w-full justify-between'>
-                <h1 className='text-2xl font-medium'>
+                <h1 className='text-2xl font-medium text-gray-700'>
                     {feedDetails.title}
                 </h1>
                 {
                     feedDetails.title !== 'Upcoming Events' &&
-                    <button className='hover:opacity-70'>
-                        <p className='text-xl text-blue-700 font-medium '>
+                    <button className='py-[1vh] px-[1vw] rounded-xl hover:bg-gray-50 hover:shadow-lg'>
+                        <p className='text-xl text-gray-400 font-medium hover:text-primaryBlue transition-colors duration-700'>
                             View All
                         </p>
                     </button>                
@@ -30,14 +29,13 @@ export default function FeedBlogSection({isLoading,feedDetails}: Props) {
                         return (
                             <li
                                 key={e.eventTitle}
-                                className='mobile:w-[30rem] sm:w-1/3 md:w-1/4 sm:h-[20rem] bg-gray-100 border border-gray-100 hover:opacity-80 rounded-xl hover:shadow-lg transition-all'
+                                className='mobile:w-[30rem] mobile:h-full sm:w-[30rem]  md:h-[45vh] md:w-[20rem] md:min-h-[20vh] lg:w-[25rem] bg-gray-100 border border-gray-100 hover:opacity-80 rounded-xl hover:shadow-lg transition-all'
                             >
-                                <p>
-                                    <BlogsDetail detail={e}/>
-                                </p>
+                                <BlogsDetail detail={e}/>
                             </li>
                         )
                     })}
+
                 </ul>
             </div>
         </section>

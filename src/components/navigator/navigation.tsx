@@ -33,7 +33,7 @@ export default function Navigation({}: Props) {
                 <ul className='flex flex-row gap-x-[2vw] items-center'>
                     <li>
                         <Link href='/'>
-                            <h1 className='font-semibold text-2xl text-midGreen hover:text-baseGreen transition-colors duration-700'>
+                            <h1 className='font-semibold text-2xl text-primaryBlue hover:text-blue-600 transition-colors duration-700'>
                                 EBENT
                             </h1>
                         </Link>
@@ -112,9 +112,11 @@ export default function Navigation({}: Props) {
                         }
                         { isLoggedin && 
                             <li className='mobile:hidden md:flex '>
-                                <Link href='/wallet'>
+                                <Link href='/wallet'
+                                    className='px-[0.5vw] py-[0.5vh] hover:bg-slate-50 hover:border-slate-50 transition-colors duration-500 hover:shadow-md rounded-xl'
+                                >
                                     <IoIosWallet
-                                        className='md:text-3xl font-medium text-baseGreen hover:text-midGreen transition-colors duration-700'
+                                        className=' md:text-3xl font-medium text-gray-400  hover:text-primaryBlue transition-colors duration-700'
                                     />
                                 </Link>
                             </li>

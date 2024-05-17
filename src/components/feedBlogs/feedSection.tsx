@@ -23,7 +23,7 @@ export default function FeedSection() {
 
     const feedsData = async ()=>{
         const response : FeedStatus = await onGetFeeds()
-        localStorage.setItem('feeds', JSON.stringify(response.payload))
+        sessionStorage.setItem('feeds', JSON.stringify(response.payload))
         const tempFeeds: FeedDetails[] = Object.values(response.payload) // Explicitly type tempFeeds as FeedDetails[]
         const reOrderingFeeds = [
             tempFeeds[2],
@@ -46,8 +46,8 @@ export default function FeedSection() {
         })
         //Setting delays 2 sec
         setTimeout(() => {
-            if (localStorage.getItem('feeds')) {
-                const tempFeeds : FeedDetails[] = Object.values(JSON.parse(localStorage.getItem('feeds') as string)) 
+            if (sessionStorage.getItem('feeds')) {
+                const tempFeeds : FeedDetails[] = Object.values(JSON.parse(sessionStorage.getItem('feeds') as string)) 
                 const reOrderingFeeds = [
                     tempFeeds[2],
                     tempFeeds[3],
@@ -61,7 +61,7 @@ export default function FeedSection() {
                     status: 200,
                     isLoading : false
                 })
-            }else if (!localStorage.getItem('feeds')){
+            }else if (!sessionStorage.getItem('feeds')){
                 // is the case when the user is visiting the site for the first time
                 feedsData()
             }             
@@ -69,15 +69,23 @@ export default function FeedSection() {
     },[])
     return (
         <section className='px-[5vw] my-[5vh]'>  
-            <>
+            <div className='flex flex-col gap-y-[5vh]'>
+                {
+                    feeds.isLoading && 
+                    <div className='bg-gray-500'>
+                        <p className='text-2xl text-white font-medium'>
+                            Loading...
+                        </p>
+                    </div>
+                }
                 {
                     feeds.currentFeeds.map((e : FeedDetails)=>{
                         return (
-                            <FeedBlogSection key={e.title} isLoading={feeds.isLoading} feedDetails={e}/>
+                            <FeedBlogSection key={e.title} feedDetails={e}/>
                         )
                     })
                 }
-            </>
+            </div>
 
         </section>
     )

@@ -2,7 +2,6 @@
 import { getDatabase, ref , get , child  } from "firebase/database";
 import { app } from "../../InitializeApp";
 
-import { FeedBlogDetail } from '@/interface/feedBlogs/feedBlogDetails'
 
 export const onGetFeeds = async () => {
     const dbRef = ref(getDatabase(app))
