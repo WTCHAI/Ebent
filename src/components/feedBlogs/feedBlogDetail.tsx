@@ -45,13 +45,16 @@ export default function BlogsDetail({detail}: Props) {
           src="https://placehold.co/1980x1080"
         />
       </div>
-      <div className='flex flex-col h-full '>
-        <p className='text-red-500 text-sm font-normal mt-[1vh]'>{translateDay(TransDateS[0])} , {TransDateS[1]} {TransDateS[2]} {TransDateE[3]}</p>
-        <h1 className='text-lg font-medium mt-[0.5vh] '>{detail.eventTitle}</h1>
-        <span className='flex flex-row items-center gap-x-[1vw] mt-[1vh]'> 
-          <ImLocation className='text-base'/>
-          <p className='text-xs font-normal text-gray-400'>{detail.location}</p>
-        </span>
+      <div className='flex flex-col h-full pt-[1vh]'>
+        <p className='text-red-500 text-xs font-normal mt-[1vh]'>{translateDay(TransDateS[0])} , {TransDateS[1]} {TransDateS[2]} {TransDateE[3]}</p>
+        <div className='flex flex-col gap-y-[1vh]'>
+          <h1 className='text-base font-medium mt-[0.5vh] '>{detail.eventTitle}</h1>
+          <span className='flex flex-row items-center gap-x-[1vw] mt-[1vh] pl-[1vw]'> 
+            <ImLocation className='text-base'/>
+            <p className='text-xs font-normal text-gray-400 '>{detail.location}</p>
+          </span>          
+        </div>
+        
         
       </div>
     </div>

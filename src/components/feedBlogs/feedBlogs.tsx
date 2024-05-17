@@ -29,7 +29,7 @@ export default function FeedBlogSection({feedDetails}: Props) {
                         return (
                             <li
                                 key={e.eventTitle}
-                                className='mobile:w-[30rem] mobile:h-full sm:w-[30rem]  md:h-[45vh] md:w-[20rem] md:min-h-[20vh] lg:w-[25rem] bg-gray-100 border border-gray-100 hover:opacity-80 rounded-xl hover:shadow-lg transition-all'
+                                className='mobile:w-[30rem] mobile:h-full sm:w-[30rem] md:h-[45vh] md:w-[20rem] lg:w-[25rem] lg:min-h-[50vh] md:hfit lg:h-fit bg-gray-100 border border-gray-100 hover:opacity-80 rounded-xl hover:shadow-lg transition-all'
                             >
                                 <BlogsDetail detail={e}/>
                             </li>
