@@ -54,8 +54,6 @@ export default function BlogsDetail({detail}: Props) {
             <p className='text-xs font-normal text-gray-400 '>{detail.location}</p>
           </span>          
         </div>
-        
-        
       </div>
     </div>
   )
