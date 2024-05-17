@@ -75,7 +75,7 @@ export default function Navigation({}: Props) {
                     {/* responsive handle > md */}
                     <ul className='mobile:hidden md:flex items-center md:text-base gap-x-[2vw]'>
                         <li className=''>
-                            <Link href='/'>
+                            <Link href='/explore'>
                                 <h1 className=' md:text-base text-gray-400 font-semibold hover:text-gray-500 border-white border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-slate-50 hover:border-slate-50 transition-colors duration-500 hover:shadow-md'>EXPLORE</h1>
                             </Link>
                         </li>
@@ -104,7 +104,7 @@ export default function Navigation({}: Props) {
                             !isLoggedin &&
                             <li className='mobile:hidden md:flex gap-x-[1vw]'>
                                 <Link href='/signin' className=''>
-                                    <h1 className='md:text-base text-white font-medium bg-baseGreen border-baseGreen border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-midGreen hover:border-midGreen transition-colors duration-300 hover:shadow-md'>
+                                    <h1 className='md:text-base text-white font-medium bg-primaryBlue border-primaryBlue border-solid border-2 rounded-xl px-[1.5vw] py-[0.5vh] hover:bg-blue-600 hover:border-blue-600 transition-colors duration-300 hover:shadow-md'>
                                         {currentLanguage === 'th' ? keyWord['signIn'][0] : keyWord['signIn'][1]}
                                     </h1>
                                 </Link>

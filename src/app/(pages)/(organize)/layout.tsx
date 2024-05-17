@@ -1,4 +1,5 @@
 import Navigation from "@/components/navigator/navigation";
+import Footer from "@/components/footer/footer";
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
@@ -6,6 +7,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body>
         <Navigation/>
         {children}
+        <Footer/>
       </body>
     </html>
   )

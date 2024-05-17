@@ -7,6 +7,8 @@ import { onGetFeeds } from '@/firebase/assets/feedBlogs/feedsDetails'
 import { FeedStatus } from '@/interface/feedBlogs/feedstatus'
 import { FeedDetails } from '@/interface/feedBlogs/feedBlogDetails'
 
+import Loading from '@/app/(auth)/loading'
+
 
 type FeedState = {
     isLoading : boolean,
@@ -72,11 +74,7 @@ export default function FeedSection() {
             <div className='flex flex-col gap-y-[5vh]'>
                 {
                     feeds.isLoading && 
-                    <div className='bg-gray-500'>
-                        <p className='text-2xl text-white font-medium'>
-                            Loading...
-                        </p>
-                    </div>
+                    <Loading/>
                 }
                 {
                     feeds.currentFeeds.map((e : FeedDetails)=>{
