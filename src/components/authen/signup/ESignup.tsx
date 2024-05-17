@@ -5,7 +5,7 @@ import React , { useState } from 'react'
 import * as z from 'zod'
 import { useForm , Controller} from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ESignupFormSchema , ESignupFormType } from '@/schema/EsignUpForm';
+import { ESignupFormSchema , ESignupFormType } from '@/schema/authForm/EsignUpForm';
  
 import { ESignupStatus } from '@/interface/authen/EsignUpStatus';
 import { ESignUpAuth } from '@/firebase/auth/signUp/ESignUp';

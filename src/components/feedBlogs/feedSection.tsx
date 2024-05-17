@@ -2,7 +2,7 @@
 import React, { useEffect , useState } from 'react'
 
 import FeedBlogSection from './feedBlogs'
-import { onGetFeeds } from '@/firebase/assets/feedBlogs/feeds'
+import { onGetFeeds } from '@/firebase/assets/feedBlogs/feedsDetails'
 
 import { FeedStatus } from '@/interface/feedBlogs/feedstatus'
 import { FeedDetails } from '@/interface/feedBlogs/feedBlogDetails'
