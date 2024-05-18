@@ -7,9 +7,6 @@ import { onGetFeeds } from '@/firebase/assets/feedBlogs/feedsDetails'
 import { FeedStatus } from '@/interface/feedBlogs/feedstatus'
 import { FeedDetails } from '@/interface/feedBlogs/feedBlogDetails'
 
-import Loading from '@/app/(auth)/loading'
-
-
 type FeedState = {
     isLoading : boolean,
     currentFeeds : FeedDetails[],
@@ -46,9 +43,8 @@ export default function FeedSection() {
             ...feeds,
             isLoading : true
         })
-        //Setting delays 2 sec
-        setTimeout(() => {
-            if (sessionStorage.getItem('feeds')) {
+        //Setting delays 2 sec 
+           if (sessionStorage.getItem('feeds')) {
                 const tempFeeds : FeedDetails[] = Object.values(JSON.parse(sessionStorage.getItem('feeds') as string)) 
                 const reOrderingFeeds = [
                     tempFeeds[2],
@@ -67,16 +63,12 @@ export default function FeedSection() {
                 // is the case when the user is visiting the site for the first time
                 feedsData()
             }             
-        }, 2000)
     },[])
     return (
         <section className='px-[5vw] my-[5vh]'>  
             <div className='flex flex-col gap-y-[5vh]'>
-                {
-                    feeds.isLoading && 
-                    <Loading/>
-                }
-                {
+                {   
+                    feeds.currentFeeds.length > 0  &&
                     feeds.currentFeeds.map((e : FeedDetails)=>{
                         return (
                             <FeedBlogSection key={e.title} feedDetails={e}/>

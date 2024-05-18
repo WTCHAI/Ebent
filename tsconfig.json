@@ -1,5 +1,5 @@
 {
-  "compilerOptions": {
+    "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/firebase/signIn/EsignIn.ts",
-    "src/firebase/InitializeApp.ts"
+    "src/firebase/InitializeApp.ts",
+    "src/styles/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

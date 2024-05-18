@@ -23,7 +23,6 @@ export default function Home({}: Props) {
           <Cta/>
         </>
         <Footer/>
-
     </main>
   )
 }
