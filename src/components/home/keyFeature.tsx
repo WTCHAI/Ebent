@@ -3,10 +3,10 @@ import { FaCalendarAlt, FaWallet, FaUserShield, FaSearch } from 'react-icons/fa'
 
 export default function KeyFeatures() {
   return (
-    <section className="flex items-center mobile:py-[10vh] md:py-[20vh] bg-slate-200 w-screen">
+    <section className=" items-center mobile:py-[10vh] md:py-[20vh] bg-slate-200 w-screen">
       <div className="flex flex-col justify-center items-center text-center">
         <h2 className="mobile:text-2xl md:text-3xl font-bold text-gray-900 mb-8">Why Choose Our Platform?</h2>
-        <div className="flex flex-wrap justify-center gap-8 mobile:mx-[5vw]">
+        <div className="flex flex-wrap justify-center gap-8 mobile:px-[5vw]">
           <div className="mobile:py-[5vh] mobile:px-[4vw] mobile:w-[80vw] md:max-w-md md: border border-gray-100 rounded-lg shadow-md hover:shadow-lg bg-gray-50 transition-all duration-300 hover:scale-[1.02]">
             <FaCalendarAlt className="text-4xl text-primaryBlue mx-auto"/>
             <h3 className="mobile:text-lg md:text-xl font-semibold text-gray-800 mt-4">Easy Event Management</h3>

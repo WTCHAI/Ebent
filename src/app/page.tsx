@@ -14,15 +14,13 @@ type Props = {}
 export default function Home({}: Props) {
   
   return (
-    <main className='w-screen '>
+    <main className=' no-scrollbar'>
         <Navigation/>
-          <>
             <HeroSection/>
             <KeyFeatures/>
             <ExamEvent/>
             <MarketplaceHome/>
             <Guide/>
-          </>
         <Footer/>
     </main>
   )

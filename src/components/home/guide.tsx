@@ -3,7 +3,7 @@ import React from 'react';
 export default function Guide() {
   return (
     <section className="bg-primaryBlue py-[20vh]">
-      <div className="container mx-auto px-4 text-center">
+      <div className="flex flex-col px-4 text-center">
         <h2 className="text-3xl font-bold  mb-8 ">How It Works</h2>
         <div className="flex flex-wrap justify-center gap-8">
           <div className="max-w-xs p-4 border rounded-lg shadow-md">

@@ -132,12 +132,12 @@ export default function ExamEvent() {
   }, []);
 
   return (
-    <section className="items-center bg-white ">
-      <div className="flex flex-col px-4 items-center justify-center mobile:mt-[10vh]">
+    <section className="items-center bg-white w-screen ">
+      <div className="flex flex-col  items-center justify-center mobile:pt-[10vh]">
         <h2 className="mobile:text-3xl  md:text-4xl font-semibold text-gray-800  text-center">Explore Upcoming Events</h2>
       </div>
       <ul
-        className="flex flex-row items-center gap-8 overflow-x-scroll pt-[5vh]  pb-[10vh] px-[5vw] active:cursor-grabbing h-full hide-scroll-bar"
+        className="flex flex-row items-center gap-8 overflow-x-scroll pt-[5vh] pb-[10vh] px-[5vw] active:cursor-grabbing h-full w-screen hide-scroll-bar"
         ref={EventList}
       >
           {
@@ -187,7 +187,7 @@ export default function ExamEvent() {
             className='ml-[2vw]'
           >
             <Link href="/explore">
-              <FaArrowCircleRight className='text-5xl text-slate-50 hover:scale '/>
+              <FaArrowCircleRight className='text-5xl text-gray-700 hover:scale-110 transition-transform duration-300'/>
             </Link>
             
           </li>
