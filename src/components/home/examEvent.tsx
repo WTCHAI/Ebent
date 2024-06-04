@@ -10,7 +10,7 @@ import { onGetExamEvent } from '@/firebase/assets/home/examEvent';
 
 import { FaArrowCircleRight } from "react-icons/fa";
 
-import { Skeleton } from 'antd';
+import { Skeleton , Image} from 'antd';
 
 type FeedState = {
   isLoading : boolean,
@@ -80,6 +80,7 @@ export default function ExamEvent() {
           })
       }else if (!sessionStorage.getItem('examEvent')){
           // is the case when the user is visiting the site for the first time
+          console.log("Getting data")
           onGettingFeed()
       }   
   },[])
@@ -139,7 +140,7 @@ export default function ExamEvent() {
         ref={EventList}
       >
           {
-            Feeds.currentFeeds?.map((feed) => {
+            Feeds.currentFeeds?.map((feed : FeedBlogDetail) => {
               //date translation
               const startDate = new Date(feed.startDate);
               const endDate = new Date(feed.endDate);
@@ -150,8 +151,13 @@ export default function ExamEvent() {
               return (
                 <li
                   key={feed.eventId}
-                  className="bg-gray-100 min-w-[40vw] h-[50vh] px-[3vw] rounded-lg shadow-md py-[2vh] my-[3vh]  hover:shadow-lg hover:scale-[1.02] transition-all duration-300 hover:translate-y-[-1vh] cursor-default"
+                  className="bg-gray-100 min-w-[40vw] rounded-lg shadow-md  my-[3vh]  hover:shadow-lg hover:scale-[1.02] transition-all duration-300 hover:translate-y-[-1vh] cursor-default"
                 >
+                  <Image
+                    alt={feed.eventTitle}
+                    src={feed.eventImage }
+                    className="w-full rounded-t-lg "
+                    />
                   <h3 className="text-xl font-semibold text-gray-800">{feed.eventTitle}</h3>
                   <p className="text-gray-600 mt-2">{feed.eventDescription}</p>
                   <p className="text-red-500 text-xs font-normal mb-2">
