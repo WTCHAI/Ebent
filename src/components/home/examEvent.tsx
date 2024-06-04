@@ -9,8 +9,10 @@ import { FeedStatus } from '@/interface/feedBlogs/feedstatus';
 import { onGetExamEvent } from '@/firebase/assets/home/examEvent';
 
 import { FaArrowCircleRight } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 
-import { Skeleton , Image} from 'antd';
+import { Skeleton , Divider} from 'antd';
+import "./examEvent.css";
 
 type FeedState = {
   isLoading : boolean,
@@ -132,10 +134,10 @@ export default function ExamEvent() {
   return (
     <section className="items-center bg-slate-700 ">
       <div className="flex flex-col px-4 items-center justify-center">
-        <h2 className="mobile:text-2xl  md:text-4xl font-semibold text-slate-50 mt-[5vh] text-center">Explore Upcoming Events</h2>
+        <h2 className="mobile:text-2xl  md:text-4xl font-semibold text-white mt-[5vh] text-center">Explore Upcoming Events</h2>
       </div>
       <ul
-        className="flex flex-row items-center gap-8 overflow-x-scroll pt-[5vh]  pb-[10vh] px-[5vw] active:cursor-grabbing"
+        className="flex flex-row items-center gap-8 overflow-x-scroll pt-[5vh]  pb-[10vh] px-[5vw] active:cursor-grabbing h-full hide-scroll-bar"
         ref={EventList}
       >
           {
@@ -150,19 +152,31 @@ export default function ExamEvent() {
               return (
                 <li
                   key={feed.eventId}
-                  className="bg-gray-100 min-w-[40vw] rounded-lg shadow-md  my-[3vh]  hover:shadow-lg hover:scale-[1.02] transition-all duration-300 hover:translate-y-[-1vh] cursor-default"
+                  className="bg-gray-100 mobile:min-w-[60vw] md:min-w-[30vw] mobile:min-h-fit md:min-h-[50vh] h-full rounded-lg shadow-md my-[3vh] hover:shadow-lg hover:scale-[1.02] transition-all duration-500 hover:translate-y-[-2vh] cursor-default"
                 >
-                  <Image
+                  <img
                     alt={feed.eventTitle}
                     src={feed.eventImage }
-                    className="w-full rounded-t-lg "
-                    />
-                  <h3 className="text-xl font-semibold text-gray-800">{feed.eventTitle}</h3>
-                  <p className="text-gray-600 mt-2">{feed.eventDescription}</p>
-                  <p className="text-red-500 text-xs font-normal mb-2">
-                    {translateDay(TransDateS[0])}, {TransDateS[1]} {TransDateS[2]} {TransDateE[3]}
-                  </p>
-                  <Link href="#" className="text-primaryBlue mt-4 inline-block">Learn More</Link>
+                    className="w-full rounded-t-lg cursor-pointer "
+                    onClick={()=>{
+                      
+                    }}
+                  />
+                    <div className='flex flex-col justify-between px-[1.5vw] my-[1.5vh] gap-y-[1vh]'>
+                      <p className="text-red-500 text-sm font-normal ">
+                        {translateDay(TransDateS[0])}, {TransDateS[1]} {TransDateS[2]} {TransDateE[3]}
+                      </p>
+                      <h3 className="text-xl font-semibold text-gray-800">{feed.eventTitle}</h3>
+                      <span className="flex items-center text-gray-600 ml-[0.5vw]">
+                        <FaLocationDot className="text-base mr-2" />
+                        <p className="text-base">{feed.location}</p>
+                      </span>
+                      <Divider
+                        className='my-0'
+                      />
+                                          
+                    </div>
+
                 </li>  
               )
           })}
