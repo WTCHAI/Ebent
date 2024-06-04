@@ -14,7 +14,26 @@ type FeedState = {
   status : number
 }
 
-
+function translateDay(day: string) {
+  switch (day) {
+    case 'วันอาทิตย์ที่':
+      return 'อา';
+    case 'วันจันทร์ที่':
+      return 'จ';
+    case 'วันอังคารที่':
+      return 'อ';
+    case 'วันพุธที่':
+      return 'พ';
+    case 'วันพฤหัสบดีที่':
+      return 'พฤ';
+    case 'วันศุกร์ที่':
+      return 'ศ';
+    case 'วันเสาร์ที่':
+      return 'ส';
+    default:
+      return '';
+  }
+}
 
 
 export default function ExamEvent() {
@@ -44,7 +63,6 @@ export default function ExamEvent() {
       ...Feeds,
       isLoading : true
     })
-  // //Setting delays 2 sec 
      if (sessionStorage.getItem('examEvent')) {
           const tempFeeds : FeedBlogDetail[] = (JSON.parse(sessionStorage.getItem('feeds') as string)) 
 
@@ -60,7 +78,7 @@ export default function ExamEvent() {
       }   
   },[])
   return (
-    <section className="bg-slate-600 py-[20vh]" id="explore">
+    <section className="bg-slate-600 py-[20vh]">
       <div className="flex flex-col px-4 items-center justify-center">
         <h2 className="text-3xl font-semibold text-slate-50 mb-8 text-center">Explore Upcoming Events</h2>
       </div>
@@ -84,7 +102,9 @@ export default function ExamEvent() {
                 >
                   <h3 className="text-xl font-semibold text-gray-800">{feed.eventTitle}</h3>
                   <p className="text-gray-600 mt-2">{feed.eventDescription}</p>
-                  
+                  <p className="text-red-500 text-xs font-normal mb-2">
+                    {translateDay(TransDateS[0])}, {TransDateS[1]} {TransDateS[2]} {TransDateE[3]}
+                  </p>
                   <a href="#" className="text-primaryBlue mt-4 inline-block">Learn More</a>
                 </li>  
               )
