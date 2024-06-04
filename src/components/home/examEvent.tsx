@@ -132,9 +132,9 @@ export default function ExamEvent() {
   }, []);
 
   return (
-    <section className="items-center bg-slate-700 ">
-      <div className="flex flex-col px-4 items-center justify-center">
-        <h2 className="mobile:text-2xl  md:text-4xl font-semibold text-white mt-[5vh] text-center">Explore Upcoming Events</h2>
+    <section className="items-center bg-white ">
+      <div className="flex flex-col px-4 items-center justify-center mobile:mt-[10vh]">
+        <h2 className="mobile:text-3xl  md:text-4xl font-semibold text-gray-800  text-center">Explore Upcoming Events</h2>
       </div>
       <ul
         className="flex flex-row items-center gap-8 overflow-x-scroll pt-[5vh]  pb-[10vh] px-[5vw] active:cursor-grabbing h-full hide-scroll-bar"
@@ -152,15 +152,13 @@ export default function ExamEvent() {
               return (
                 <li
                   key={feed.eventId}
-                  className="bg-gray-100 mobile:min-w-[60vw] md:min-w-[30vw] mobile:min-h-fit md:min-h-[50vh] h-full rounded-lg shadow-md my-[3vh] hover:shadow-lg hover:scale-[1.02] transition-all duration-500 hover:translate-y-[-2vh] cursor-default"
+                  className="bg-gray-100 mobile:min-w-[60vw] md:min-w-[40vw] mobile:min-h-fit md:min-h-fit h-full rounded-lg shadow-lg my-[3vh] hover:shadow-xl hover:scale-[1.02] transition-all duration-500 hover:translate-y-[-2vh] cursor-default"
                 >
                   <img
                     alt={feed.eventTitle}
                     src={feed.eventImage }
                     className="w-full rounded-t-lg cursor-pointer "
-                    onClick={()=>{
-                      
-                    }}
+                    draggable={false}
                   />
                     <div className='flex flex-col justify-between px-[1.5vw] my-[1.5vh] gap-y-[1vh]'>
                       <p className="text-red-500 text-sm font-normal ">
@@ -173,8 +171,7 @@ export default function ExamEvent() {
                       </span>
                       <Divider
                         className='my-0'
-                      />
-                                          
+                      />             
                     </div>
 
                 </li>  

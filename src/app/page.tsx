@@ -14,7 +14,7 @@ type Props = {}
 export default function Home({}: Props) {
   
   return (
-    <main className='w-full'>
+    <main className='w-screen '>
         <Navigation/>
           <>
             <HeroSection/>
