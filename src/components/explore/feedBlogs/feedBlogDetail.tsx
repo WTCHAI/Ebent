@@ -39,7 +39,7 @@ export default function BlogsDetail({ detail }: Props) {
     <div className="flex flex-col rounded-xl h-full p-4 bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
       <div className="flex rounded-lg ">
         <Image
-          src={detail.eventImage || "https://placehold.co/1980x1080"}
+          src={detail.eventImage ? detail.eventImage : "https://placehold.co/1980x1080"}
           alt={detail.eventTitle}
           className="w-full "
         />

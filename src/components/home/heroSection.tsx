@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function HeroSection() {
   return (
-    <section className="bg-white text-center py-[22vh]">
+    <section className="bg-white text-center py-[25vh]">
       <div className="flex flex-col items-center justify-center px-4 ">
         <h1 className="mobile:text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900">Blockchain-Powered Event Marketplace</h1>
         <p className="mt-4 mobile:text-base md:text-lg lg:text-xl text-gray-600">Join the future of events with our secure and transparent platform.</p>

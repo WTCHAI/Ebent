@@ -6,7 +6,7 @@ type Props = {};
 export default function Page({}: Props) {
 
   return (
-    <main className=''>
+    <main className='flex flex-col items-center justify-center h-screen'>
       <Signin/>
     </main>
   );

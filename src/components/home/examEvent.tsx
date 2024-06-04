@@ -80,7 +80,6 @@ export default function ExamEvent() {
           })
       }else if (!sessionStorage.getItem('examEvent')){
           // is the case when the user is visiting the site for the first time
-          console.log("Getting data")
           onGettingFeed()
       }   
   },[])
