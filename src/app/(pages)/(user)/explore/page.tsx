@@ -1,5 +1,6 @@
 
 import CarouselRender from '@/components/explore/carousal/Carousal'
+import ExploreEvents from '@/components/explore/chatblogs/feeds';
 import FeedSection from '@/components/explore/feedBlogs/feedSection'
 
 import React from 'react'
@@ -14,6 +15,7 @@ export default async function page({}: Props) {
     <main>
       {/* <CarouselRender /> */}
       <FeedSection />
+      {/* <ExploreEvents/> */}
     </main>
   );
 }

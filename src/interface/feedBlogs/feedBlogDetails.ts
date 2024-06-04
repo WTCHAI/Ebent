@@ -1,6 +1,6 @@
 export interface FeedBlogDetail {
     eventId : string ; 
-    eventImage : any ;
+    imageUrl : any ;
     eventDescription : string ;
     eventTitle : string ;
     startDate : string ;

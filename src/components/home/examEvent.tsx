@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ExamEvent() {
   return (
-    <section className="bg-white py-[15vh]" id="explore">
+    <section className="bg-white py-[20vh]" id="explore">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Explore Upcoming Events</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
