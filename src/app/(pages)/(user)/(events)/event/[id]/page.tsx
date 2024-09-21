@@ -1,15 +1,15 @@
 'use client'
+import { useRouter } from 'next/router'
+
 import React from 'react'
 
-import { useParams } from 'next/navigation'
 
 type Props = {}
 
 export default function Page({}: Props) {
-    const param = useParams()
-    
-
-  return (
-    <div>page {param.id}</div>
-  )
+    const router = useRouter()
+    return (
+        <p>Post: {router.query.id}</p>
+    )
+  
 }
